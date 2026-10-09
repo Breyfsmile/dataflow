@@ -4,7 +4,7 @@
  */
 (function () {
   const container = document.getElementById("counters");
-  if (!container) return;
+ // if (!container) return;
 
   // ============================================================
   // 1. LiveInternet
