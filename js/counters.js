@@ -11,17 +11,18 @@
   // ============================================================
   // ВСТАВЬТЕ СЮДА КОД ИЗ ЛИЧНОГО КАБИНЕТА LIVeINTERNET
   // Пример (замените на свой):
-  /*
   container.insertAdjacentHTML("beforeend", `
-    <!--LiveInternet counter-->
-    <a href="https://www.liveinternet.ru/click" target="_blank">
-      <img id="licntXXXX" width="88" height="15" style="border:0"
-           title="LiveInternet: показано число просмотров за 24 часа"
-           src="https://counter.yadro.ru/hit?t14.6;r..."/>
-    </a>
-    <!--/LiveInternet-->
+    <!--LiveInternet counter--><a href="https://www.liveinternet.ru/click"
+    target="_blank"><img id="licnt78E1" width="88" height="31" style="border:0" 
+    title="LiveInternet: показано число просмотров и посетителей за 24 часа"
+    src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+    alt=""/></a><script>(function(d,s){d.getElementById("licnt78E1").src=
+    "https://counter.yadro.ru/hit?t52.6;r"+escape(d.referrer)+
+    ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+    (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+    ";h"+escape(d.title.substring(0,150))+";"+Math.random()})
+    (document,screen)</script><!--/LiveInternet-->
   `);
-  */
 
   // ============================================================
   // 2. Рамблер/Топ-100
