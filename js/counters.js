@@ -30,6 +30,43 @@
     })(document, screen);
 
     // 2. Рамблер/Топ-100 — позже
+    (function (w, d, c) {
+        (w[c] = w[c] || []).push(function() {
+            var options = {
+                project: 7752719,
+                attributes_dataset: [ "data-block" ],
+                trackHashes: true,
+                user_id: null,
+            };
+            try {
+                w.top100Counter = new top100(options);
+            } catch(e) { }
+        });
+        var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src =
+        (d.location.protocol == "https:" ? "https:" : "http:") +
+        "//st.top100.ru/top100/top100.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(window, document, "_top100q");
+
+    // 2.3. Фолбэк <noscript> — добавим картинку вручную,
+    //      чтобы она была видна и без JS (для проверки в кабинете)
+    container.insertAdjacentHTML("beforeend", `
+    <!-- Top100 (Kraken) noscript fallback -->
+    <a href="https://top100.rambler.ru/navi/7752719/" target="_blank">
+        <img src="https://counter.rambler.ru/top100.cnt?pid=7752719"
+            alt="Топ-100" width="88" height="31" border="0"/>
+    </a>
+    <!-- END Top100 fallback -->
+    `);
+
     // 3. Рейтинг Mail.ru — позже
   }
 
