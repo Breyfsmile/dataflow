@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CI/CD за 30 минут — DataFlow</title>
+  <meta name="description" content="Настройка GitHub Actions для деплоя на GitHub Pages.">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="../index.html" class="logo">DataFlow</a>
+      <span class="spacer"></span>
+      <a href="../about.html">О нас</a>
+      <a href="../services.html">Услуги</a>
+      <a href="../blog.html">Блог</a>
+      <a href="../contacts.html">Контакты</a>
+    </nav>
+  </header>
+
+  <main class="page article">
+    <p class="back-link"><a href="../blog.html">← Все статьи</a></p>
+    <p class="article-meta">25 сентября 2026 · IT · 5 мин чтения</p>
+    <h1>CI/CD за 30 минут</h1>
+    <p class="subtitle">Настраиваем GitHub Actions для автоматического деплоя на GitHub Pages.</p>
+
+    <h2>Зачем это нужно</h2>
+    <p>Ручной деплой — это лишние шаги, забытые файлы и «а у меня локально работало». CI/CD автоматизирует публикацию: запушили в `main` — сайт обновился.</p>
+
+    <h2>Шаг 1. Включите GitHub Pages</h2>
+    <p>В настройках репозитория → <strong>Pages</strong> → Source: <em>GitHub Actions</em>.</p>
+
+    <h2>Шаг 2. Создайте workflow</h2>
+    <p>Файл <code>.github/workflows/deploy.yml</code>:</p>
+    <pre><code>name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v4
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - uses: actions/deploy-pages@v4
+</code></pre>
+
+    <h2>Шаг 3. Запушьте</h2>
+    <pre><code>git add .
+git commit -m "Add GitHub Actions deploy"
+git push</code></pre>
+
+    <h2>Шаг 4. Проверьте</h2>
+    <p>Вкладка <strong>Actions</strong> в репозитории — workflow должен пройти зелёным. Сайт обновится автоматически.</p>
+
+    <h2>Итог</h2>
+    <p>Теперь каждый `git push` в `main` публикует сайт. Никаких ручных операций.</p>
+
+    <p class="cta-wrap">
+      <a href="../contacts.html" class="cta">Нужна помощь с CI/CD?</a>
+    </p>
+  </main>
+
+  <footer>
+    <div class="links">
+      <a href="../index.html">Главная</a>
+      <a href="../about.html">О нас</a>
+      <a href="../services.html">Услуги</a>
+      <a href="../blog.html">Блог</a>
+      <a href="../contacts.html">Контакты</a>
+    </div>
+    <p class="copyright">© 2026 DataFlow. Все права защищены.</p>
+    <div class="counters">
+      <!-- СЮДА ВСТАВИМ СЧЁТЧИКИ -->
+    </div>
+  </footer>
+
+  <script src="../js/script.js"></script>
+</body>
+</html>
