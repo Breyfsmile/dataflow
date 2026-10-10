@@ -29,7 +29,7 @@
         ";h" + escape(d.title.substring(0, 150)) + ";" + Math.random();
     })(document, screen);
 
-    // 2. Рамблер/Топ-100 — позже
+    // 2. Рамблер/Топ-100 
     (function (w, d, c) {
         (w[c] = w[c] || []).push(function() {
             var options = {
@@ -67,7 +67,22 @@
     <!-- END Top100 fallback -->
     `);
 
-    // 3. Рейтинг Mail.ru — позже
+    // 3. Рейтинг Mail.ru
+    container.insertAdjacentHTML("beforeend", `
+        <a href="https://rating.mail.ru/..." target="_blank">
+            <img src="https://top-fwz1.mail.ru/counter?id=3800763;js=na" width="88" height="31" border="0" alt="Top.Mail.Ru"/>
+        </a>
+    `);
+
+    var _tmr = window._tmr || (window._tmr = []);
+    _tmr.push({id: "3800763", type: "pageView", start: (new Date()).getTime()});
+    (function (d, w, id) {
+        if (d.getElementById(id)) return;
+        var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+        ts.src = "https://top-fwz1.mail.ru/js/code.js";
+        var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+        if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+    })(document, window, "tmr-code");
   }
 
   if (document.readyState === "loading") {
