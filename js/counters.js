@@ -6,7 +6,7 @@
       return;
     }
     console.log("counters up");
-    // 1. LiveInternet — только видимая часть
+    // 1. LiveInternet
     container.insertAdjacentHTML("beforeend", `
         <!--LiveInternet counter--><a href="https://www.liveinternet.ru/click"
         target="_blank"><img id="licnt78E1" width="88" height="31" style="border:0" 
@@ -56,11 +56,9 @@
         } else { f(); }
     })(window, document, "_top100q");
 
-    // 2.3. Фолбэк <noscript> — добавим картинку вручную,
-    //      чтобы она была видна и без JS (для проверки в кабинете)
     container.insertAdjacentHTML("beforeend", `
     <!-- Top100 (Kraken) noscript fallback -->
-    <a href="https://top100.rambler.ru/navi/7752719/" target="_blank">
+    <a href="https://top100.rambler.ru/navi?query=7752719" target="_blank" style="visibility: hidden;">
         <img src="https://counter.rambler.ru/top100.cnt?pid=7752719"
             alt="Топ-100" width="88" height="31" border="0"/>
     </a>
@@ -69,7 +67,7 @@
 
     // 3. Рейтинг Mail.ru
     container.insertAdjacentHTML("beforeend", `
-        <a href="https://rating.mail.ru/..." target="_blank">
+        <a href="https://top.mail.ru/jump?from=3800763" target="_blank" style="visibility: hidden;">
             <img src="https://top-fwz1.mail.ru/counter?id=3800763;js=na" width="88" height="31" border="0" alt="Top.Mail.Ru"/>
         </a>
     `);
