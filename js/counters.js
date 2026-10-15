@@ -81,6 +81,26 @@
     var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
     if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
     })(document, window, "tmr-code");
+
+    function reachGoal(goalName) {
+    if (typeof window.top100d === "function") {
+        window.top100d(7752719, "reachGoal", goalName);
+        console.log("[counters.js] reachGoal:", goalName);
+    } else {
+        console.warn("[counters.js] top100d недоступен, событие пропущено:", goalName);
+    }
+    }
+
+    // 4.1. Клик по CTA-кнопкам
+    document.querySelectorAll(".cta").forEach((btn) => {
+    btn.addEventListener("click", () => reachGoal("cta_click"));
+    });
+
+    // 4.2. Отправка формы на странице контактов
+    const form = document.querySelector("form");
+    if (form) {
+    form.addEventListener("submit", () => reachGoal("form_submit"));
+    }
   }
 
   if (document.readyState === "loading") {
