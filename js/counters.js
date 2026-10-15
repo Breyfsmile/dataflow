@@ -37,6 +37,7 @@
                 attributes_dataset: [ "data-block" ],
                 trackHashes: true,
                 user_id: null,
+                checkInit: true,
             };
             try {
                 w.top100Counter = new top100(options);
@@ -101,6 +102,11 @@
     if (form) {
     form.addEventListener("submit", () => reachGoal("form_submit"));
     }
+
+    document.addEventListener('initKraken7752719', function () {
+    console.log("top100Counter");
+    });
+
   }
 
   if (document.readyState === "loading") {
