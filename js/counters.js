@@ -59,18 +59,19 @@
 
     container.insertAdjacentHTML("beforeend", `
     <!-- Top100 (Kraken) noscript fallback -->
-    <a href="https://top100.rambler.ru/navi?query=7752719" target="_blank" style="visibility: hidden;">
-        <img src="https://counter.rambler.ru/top100.cnt?pid=7752719"
-            alt="Топ-100" width="88" height="31" border="0"/>
-    </a>
+        <noscript>
+            <img src="//counter.rambler.ru/top100.cnt?pid=7752719" alt="Топ-100" />
+        </noscript>
     <!-- END Top100 fallback -->
     `);
 
     // 3. Рейтинг Mail.ru
     container.insertAdjacentHTML("beforeend", `
-        <a href="https://top.mail.ru/jump?from=3800763" target="_blank" style="visibility: hidden;">
-            <img src="https://top-fwz1.mail.ru/counter?id=3800763;js=na" width="88" height="31" border="0" alt="Top.Mail.Ru"/>
-        </a>
+        <noscript>
+            <div>
+                <img src="https://top-fwz1.mail.ru/counter?id=3800763;js=na" style="position:absolute;left:-9999px;" alt="Top.Mail.Ru" />
+            </div>
+        </noscript>
     `);
 
     var _tmr = window._tmr || (window._tmr = []);
